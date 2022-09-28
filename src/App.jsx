@@ -1,15 +1,18 @@
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
+// import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   let titulo = "Hola Buzo!"
   return (
-    <div className="App">
-      <header className="App-header">{titulo.toUpperCase()}</header>
-      <NavBar />
-      <ItemListContainer greetting ="Bienvenido a la Tienda de Buceo" />
+    // <ChakraProvider>
+      <div className="App">
+        <header className="App-header">{titulo.toUpperCase()}</header>
+        <NavBar />
+        <ItemListContainer greetting="Bienvenido a la Tienda de Buceo" />
 
-    </div>
+      </div>
+    // </ChakraProvider>
   );
 }
 
