@@ -1,25 +1,32 @@
 import { useState } from "react"
 import React from 'react'
 
-function ItemCount(stock, initial, text) {
-    const[count, setCount] = useState(initial);
-    
-    function handleSusbtrac(){
-        if(count > 1) setCount(count - 1)
+function ItemCount({ stock, initial, text }) {
+    const [count, setCount] = useState(initial);
+
+    function handleAdd() {
+        if (count < stock) {
+            setCount(count + 1);
+            console.log(count)
+        }
+    }
+    function handleRest() {
+        if (count > 1) {
+            setCount(count - 1);
+            console.log(count)
+        }
     }
 
-    function handleAdd(){
-        if (count < stock) setCount(count +1);
-    }
-  
     return (
-    <div>
-        <button onClick={handleAdd}>+</button>
-        <strong>{count}</strong>
-        <button onAuxClick={handleSusbtrac}>-</button>
-        
-    </div>
-  )
+        <div>
+            <button onClick={handleAdd}>click +</button>
+            <button onClick={handleRest}>click -</button>
+            <h4>{text}</h4>
+            <strong>{count}</strong>
+        </div>
+    );
+
+
 }
 
 

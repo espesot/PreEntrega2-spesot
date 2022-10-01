@@ -6,7 +6,9 @@ import ItemCount from "../ItemCount/ItemCount";
 
 
 function ItemListContainer(props) {
-    const [artList, setartList]= useState([])
+    //el llamado a la carga de art se lo llama dentro del useEffect 
+    //para que solo lo ejectute una sola vez cunado carga el componente
+    const [artList, setartList]= useState([])  
    useEffect(
     () => {
         getArticulos().then((data)=> {
@@ -19,7 +21,7 @@ function ItemListContainer(props) {
         <div>
             <h1>{props.greeting}</h1>
             <ItemList artList={artList}/>
-            {/* <ItemCount initil ={2} stock ={10}/>             */}
+            <hr/>
         </div>
     );
 }

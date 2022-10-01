@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import './Card.css'
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function Card(props) {
   return (
@@ -13,7 +14,11 @@ export default function Card(props) {
         <p>{props.detail}</p>
         <h4>${props.price}</h4>
       </div>
-      <Button text ={`compra ${props.title}`}/>
+      <div>
+        <Button text={`compra ${props.title}`} />
+
+        <ItemCount stock={props.stock} initial={1} text={"agregar al carrito"} />
+      </div>
     </div>
   );
 }
