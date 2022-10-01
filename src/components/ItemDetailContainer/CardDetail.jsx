@@ -1,10 +1,6 @@
 import React from 'react'
-import Button from '../Button/Button'
-import './Card.css'
-import ItemCount from '../ItemCount/ItemCount';
-import { Link } from 'react-router-dom';
 
-export default function Card(props) {
+function CardDetail(props) {
   return (
     <div className="card">
       <div className="card-img">
@@ -16,7 +12,7 @@ export default function Card(props) {
         <h4>${props.price}</h4>
       </div>
       <div>
-        <Link to= {`/art/${props.id}`}>
+        <Link to= {`/curso/${props.title}`}>
         <Button text={`compra ${props.title}`} />
         
         </Link>
@@ -24,5 +20,8 @@ export default function Card(props) {
         <ItemCount stock={props.stock} initial={1} text={"agregar al carrito"} />
       </div>
     </div>
-  );
+
+  )
 }
+
+export default CardDetail

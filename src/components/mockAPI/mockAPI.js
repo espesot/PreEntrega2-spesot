@@ -97,3 +97,8 @@ export function getArticulos(){
         setTimeout(()=>resolve(data),1500);
     });
 }
+export function getUnArticulos(id){
+    return new Promise((resolve)=>{
+        setTimeout(()=>resolve(data)[0],1500);
+    });
+}

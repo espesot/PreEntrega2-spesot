@@ -4,13 +4,13 @@ import React from 'react'
 function ItemCount({ stock, initial, text }) {
     const [count, setCount] = useState(initial);
 
-    function handleAdd() {
+    const handleAdd = () => {
         if (count < stock) {
             setCount(count + 1);
             console.log(count)
         }
     }
-    function handleRest() {
+    const handleRest = () => {
         if (count > 1) {
             setCount(count - 1);
             console.log(count)

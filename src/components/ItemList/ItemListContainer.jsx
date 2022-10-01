@@ -2,7 +2,6 @@ import Card from "../Card/Card";
 import{useEffect, useState} from "react"
 import { getArticulos } from "../mockAPI/mockAPI";
 import ItemList from "./itemList";
-import ItemCount from "../ItemCount/ItemCount";
 
 
 function ItemListContainer(props) {

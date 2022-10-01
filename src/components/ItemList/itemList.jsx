@@ -10,10 +10,13 @@ function ItemList(props) {
                 {props.artList.map( (article) =>{
                     return <Card
                     key = {article.id} 
+                    id ={article.id}
                     title = {article.title}
                     img = {article.img}
                     price = {article.price}
                     detail = {article.detail}
+                    stock ={article.stock}
+                    category = {article.category}
                     />
                 })}
             </FlexWrapper>

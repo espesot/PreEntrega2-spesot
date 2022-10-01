@@ -1,17 +1,24 @@
 import React from 'react'
 import CartWidget from './CartWidget';
+import { Link } from "react-router-dom"
 
 function NavBar() {
   return (
     <div>
-    <nav>
+      <nav>
         <ul>
-            <li><a href='a'>Aletas</a></li>
-            <li><a href='a'>Visores</a></li>
-            <li><a href='a'>Chaleco</a></li>
+          <Link>
+            <li>aletas</li>
+          </Link>
+          <Link>
+            <li>vispres</li>
+          </Link>
+          <Link>
+            <li>acompu </li>
+          </Link>
         </ul>
-        <CartWidget/>
-    </nav>
+        <CartWidget />
+      </nav>
     </div>
   )
 }

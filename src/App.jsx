@@ -1,18 +1,25 @@
+import ItemDetailContairer from "./components/ItemDetailContainer/itemDetailContairer";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
-// import { ChakraProvider } from '@chakra-ui/react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
   let titulo = "Hola Buzo!"
   return (
-    // <ChakraProvider>
+    <BrowserRouter>
       <div className="App">
         <header className="App-header">{titulo.toUpperCase()}</header>
         <NavBar />
-        <ItemListContainer greetting="Bienvenido a la Tienda de Buceo" />
-
+        <Routes>
+          <Route path="/" element={
+            <ItemListContainer greetting="Bienvenido a la Tienda de Buceo" />
+          } />
+          <Route path="/:artDetail" element={
+            <ItemDetailContairer />
+          } />
+        </Routes>
       </div>
-    // </ChakraProvider>
+    </BrowserRouter>
   );
 }
 
