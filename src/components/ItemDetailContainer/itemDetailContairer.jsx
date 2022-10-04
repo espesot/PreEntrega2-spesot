@@ -1,44 +1,39 @@
-import React from 'react'
-import { getUnArticulos } from '../mockAPI/mockAPI'
-import { useEffect, useState } from 'react'
-import {useParams} from 'react'
-import {Link} from "react-router-dom"
-import Button from '../Button/Button'
-import ItemCount from '../ItemCount/ItemCount'
+import{useEffect, useState} from "react"
+import { getUnArticulo } from "../mockAPI/mockAPI";
+import FlexWrapper from "../FlexWrapper/FlexWrapper";
+import CardDetail from "./CardDetail";
+import {useParams} from 'react-router-dom'
 
-function ItemDetailContairer(props) {
-    const[art, setArt] = useState([])
-    const {itemId}= useParams()
-        
-    useEffect(() =>{
-        getUnArticulos(itemId).then(data =>{
-            setArt(data)
-        }); 
-    
 
-        },[itemId])
+function ItemDetailContainer(props) {
+    //el llamado a la carga de art se lo llama dentro del useEffect 
+    //para que solo lo ejectute una sola vez cunado carga el componente
     
+    const [art, setArt]= useState([])  
+    const{artId} = useParams()
+    
+    useEffect(
+    () => {
+        getUnArticulo(artId).then((data)=> {
+            setArt(data);
+        });
+    },[artId]
+   ) 
+
     return (
-    
-    <div className="card">
-      <div className="card-img">
-        <img src={props.img} alt=""></img>
-      </div>
-      <div className="card-detail">
-        <h2>{props.title}</h2>
-        <p>{props.detail}</p>
-        <h4>${props.price}</h4>
-      </div>
-      <div>
-        <Link to= {`/Art/${props.title}`}>
-        <Button text={`compra ${props.title}`} />
-        
-        </Link>
-
-        {/* <ItemCount stock={props.stock} initial={1} text={"agregar al carrito"} /> */}
-      </div>
-    </div>
-  );
+        <FlexWrapper>
+            <CardDetail
+                    key = {art.id} 
+                    id ={art.id}
+                    title = {art.title}
+                    img = {art.img}
+                    price = {art.price}
+                    detail = {art.detail}
+                    stock ={art.stock}
+                    category = {art.category}
+            />
+        </FlexWrapper>
+        );
 }
 
-export default ItemDetailContairer
+export default ItemDetailContainer;

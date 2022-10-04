@@ -6,7 +6,7 @@ const data = [
         price:  599,
         detail:"lorem",
         stock: 8,
-        categoty: "",
+        category: "aleta",
     },
 
     {
@@ -16,7 +16,7 @@ const data = [
         price:  900,
         detail:"lorem",
         stock: 8,
-        categoty: "",
+        category: "visor",
     },
     {
         id: 3,
@@ -25,7 +25,7 @@ const data = [
         price:  1000,
         detail:"",
         stock: 4,
-        categoty: "",
+        category: "ordenador",
     },
 
     {
@@ -35,7 +35,7 @@ const data = [
         price:  1200,
         detail:"",
         stock: 3,
-        categoty: "",
+        category: "aleta",
     },
 
     {
@@ -45,7 +45,7 @@ const data = [
         price:  1500,
         detail:"",
         stock: 1,
-        categoty: "",
+        category: "visor",
     },
 
 
@@ -56,7 +56,7 @@ const data = [
         price:  850,
         detail:"",
         stock: 0,
-        categoty: "",
+        category: "ordenador",
     },
 
 
@@ -67,7 +67,7 @@ const data = [
         price:  2000,
         detail:"",
         stock: 10,
-        categoty: "",
+        category: "aleta",
     },
 
     {
@@ -77,7 +77,7 @@ const data = [
         price:  300,
         detail:"",
         stock: 4,
-        categoty: "",
+        category: "visor",
     },
 
     {
@@ -87,18 +87,29 @@ const data = [
         price:  1300,
         detail:"",
         stock: 7,
-        categoty: "",
+        category: "ordenador",
     },
 
 ]
 //cuando se ejecute la funcion pedida se genera una nueva promesa
 export function getArticulos(){
     return new Promise((resolve)=>{
-        setTimeout(()=>resolve(data),1500);
+        setTimeout(()=>resolve(data),1000);
     });
 }
-export function getUnArticulos(id){
+export function getUnArticulo(idParams){
     return new Promise((resolve)=>{
-        setTimeout(()=>resolve(data)[0],1500);
+        let articuloReq = data.find((item)=>{
+            return item.id === Number(idParams)
+        })   
+        // en el resolve de la promesa de la funcion devolvemos la busqueda que guardamos en el articuloreq
+        setTimeout(()=>resolve(articuloReq),1000);
     });
+}
+
+export function getArtByCategory(idCategory){
+    return new Promise((resolve) =>{
+        let filterCategoty = data.filter (item => item.category === idCategory)
+        setTimeout(()=> resolve(filterCategoty),1000);
+    })
 }

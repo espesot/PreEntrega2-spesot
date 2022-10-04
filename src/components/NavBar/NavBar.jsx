@@ -7,14 +7,17 @@ function NavBar() {
     <div>
       <nav>
         <ul>
-          <Link>
-            <li>aletas</li>
+          <Link to={'/'}>
+            <li>Inicio</li>
           </Link>
-          <Link>
-            <li>vispres</li>
+          <Link to={'/category/aleta'}>
+            <li>Aletas</li>
           </Link>
-          <Link>
-            <li>acompu </li>
+          <Link to={'/category/visor'}>
+            <li>Visores</li>
+          </Link>
+          <Link to={'/category/ordenador'}>
+            <li>Ordenadores</li>
           </Link>
         </ul>
         <CartWidget />

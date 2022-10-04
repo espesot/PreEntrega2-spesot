@@ -1,10 +1,12 @@
 import React from 'react'
+import FlexWrapper from '../FlexWrapper/FlexWrapper'
+import ItemCount from '../ItemCount/ItemCount'
 
 function CardDetail(props) {
   return (
-    <div className="card">
-      <div className="card-img">
-        <img src={props.img} alt=""></img>
+    <div>
+      <div>
+        <img src={props.img} alt={props.title}></img>
       </div>
       <div className="card-detail">
         <h2>{props.title}</h2>
@@ -12,11 +14,6 @@ function CardDetail(props) {
         <h4>${props.price}</h4>
       </div>
       <div>
-        <Link to= {`/curso/${props.title}`}>
-        <Button text={`compra ${props.title}`} />
-        
-        </Link>
-
         <ItemCount stock={props.stock} initial={1} text={"agregar al carrito"} />
       </div>
     </div>
