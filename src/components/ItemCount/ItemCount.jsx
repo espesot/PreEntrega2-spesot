@@ -19,10 +19,11 @@ function ItemCount({ stock, initial, text }) {
 
     return (
         <div>
-            <button onClick={handleAdd}>click +</button>
-            <button onClick={handleRest}>click -</button>
-            <h4>{text}</h4>
+            <button onClick={handleAdd}>Click +</button>
+            <button onClick={handleRest}>Click -</button>
+            <br/>
             <strong>{count}</strong>
+            <h4>{text}</h4>
         </div>
     );
 

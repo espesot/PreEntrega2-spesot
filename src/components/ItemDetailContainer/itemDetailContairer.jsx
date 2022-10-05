@@ -10,14 +10,14 @@ function ItemDetailContainer(props) {
     //para que solo lo ejectute una sola vez cunado carga el componente
     
     const [art, setArt]= useState([])  
-    const{artId} = useParams()
+    const{itemId} = useParams()
     
     useEffect(
     () => {
-        getUnArticulo(artId).then((data)=> {
+        getUnArticulo(itemId).then((data)=> {
             setArt(data);
         });
-    },[artId]
+    },[itemId]
    ) 
 
     return (

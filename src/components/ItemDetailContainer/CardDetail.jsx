@@ -10,11 +10,12 @@ function CardDetail(props) {
       </div>
       <div className="card-detail">
         <h2>{props.title}</h2>
+        <h6>Stock Disponible: {props.stock}</h6>
+        <h4>Valor por unidad ${props.price}</h4>
         <p>{props.detail}</p>
-        <h4>${props.price}</h4>
       </div>
       <div>
-        <ItemCount stock={props.stock} initial={1} text={"agregar al carrito"} />
+        <ItemCount stock={props.stock} initial={1} text={"Agregar al Carrito"} />
       </div>
     </div>
 

@@ -15,7 +15,7 @@ function App() {
           {/* tenemos 2 rutas.. una que muestra el ItemListContainer y otro el detalle */}
           <Route path="/" element={<ItemListContainer greetting="Bienvenido a la Tienda de Buceo"/>} />
           {/* definimos un segmento de la URL */}
-          <Route path="/articulo/:artId" element={<ItemDetailContainer/>} />
+          <Route path="/articulo/:itemId" element={<ItemDetailContainer/>} />
           <Route path="/category/:categoryID" element={<ItemListContainer/>}/>
           <Route path="*" element = {<h4>Pagina no encontrada!</h4>}/>
         </Routes>
