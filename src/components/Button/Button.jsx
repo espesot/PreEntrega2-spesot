@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 //useState es un Hook que utilizamos para cambiar el estado
 //uS nos devuleve [-una variabl (x) -una funcion con la que modificamos la variable] en forma de array
 
@@ -14,19 +14,17 @@ function Button(props) {
     //esto es lo que se ejecuta una sola vez cuando se monta el componente Botton.
     // cuando le pasamos un paramatro en el array el useEffect se ejecuta cuando se modifica el parametro      
 
-    useEffect(
-        () => {
-            console.log("hola useEffectBtn")
-        },
-        [colorBtn])
 
 
     function handleClick() {
-        setColorBtn({ backgroundColor: "rgb(150,157,0)" })
-    }
-    return (
+        if(props.onClick) props.onClick()
+        // setColorBtn({ backgroundColor: "rgb(150,157,0)" })
+    } 
 
-        <button onClick={handleClick} style={colorBtn}>{props.text}</button>
+    return (
+        <button onClick={props.onClick} style={colorBtn}>
+            {props.text}
+        </button>
     )
 }
 export default Button;

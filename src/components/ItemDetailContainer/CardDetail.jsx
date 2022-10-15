@@ -1,8 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { cartContext } from '../../context/cartContext';
 import FlexWrapper from '../FlexWrapper/FlexWrapper'
 import ItemCount from '../ItemCount/ItemCount'
 
+
 function CardDetail(props) {
+  const [count, setCount]= useState(0);
+  const {addToCart} = useContext(cartContext)
+
+    function handleAddToCard(count){
+        addToCart(props,count)
+        setCount(count)               
+    }
+
+
   return (
     <div>
       <div>
@@ -15,7 +28,16 @@ function CardDetail(props) {
         <p>{props.detail}</p>
       </div>
       <div>
-        <ItemCount stock={props.stock} initial={1} text={"Agregar al Carrito"} />
+        {count === 0 ?( 
+        <ItemCount 
+          onAddToCard={handleAddToCard} 
+          stock={props.stock} 
+          initial={1} 
+          text={"Agregar al Carrito"} 
+        />
+        ):( 
+          <Link href='/x'>ver el carrito</Link>
+        )}
       </div>
     </div>
 

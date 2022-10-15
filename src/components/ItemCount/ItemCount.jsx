@@ -1,7 +1,8 @@
 import { useState } from "react"
 import React from 'react'
+import Button from "../Button/Button";
 
-function ItemCount({ stock, initial, text }) {
+function ItemCount({ stock, initial, text, onAddToCard }) {
     const [count, setCount] = useState(initial);
 
     const handleAdd = () => {
@@ -17,13 +18,20 @@ function ItemCount({ stock, initial, text }) {
         }
     }
 
+    function handleAddToCard(){
+        console.log("agregaste:", count)                
+    }
+
     return (
         <div>
-            <button onClick={handleAdd}>Click +</button>
-            <button onClick={handleRest}>Click -</button>
+            {/* usamos el componente boton y como props le pasamos la funcion que va a ejectuar  */}
+            <Button onClick={handleAdd}>          Click +      </Button> 
+            <Button onClick={handleRest}>       Click -        </Button>
             <br/>
             <strong>{count}</strong>
-            <h4>{text}</h4>
+            {/* utilizamos una arrow function para que no se ejecute la primera vez */}
+            {/* sino solo cuando lo llamamos al onclick de onAddToCard */}
+            <Button onClick={() => {onAddToCard(count)}}>{text}      Agregar al Carrito </Button>
         </div>
     );
 
