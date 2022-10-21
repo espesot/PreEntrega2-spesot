@@ -6,7 +6,7 @@ import Card from '../Card/Card'
 // .map es el metodo que se utiliza react para hacer las iteraciones
 function ItemList(props) {
   return (
-            <FlexWrapper>
+            <FlexWrapper rows={true}>
                 {props.artList.map( (article) =>{
                     return <Card
                     key = {article.id} 
@@ -17,6 +17,7 @@ function ItemList(props) {
                     detail = {article.detail}
                     stock ={article.stock}
                     category = {article.category}
+                    new = {article.new}
                     />
                 })}
             </FlexWrapper>

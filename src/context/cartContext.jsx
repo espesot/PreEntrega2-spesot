@@ -22,10 +22,13 @@ function CartContextProvider(props){
         let newCart = cart.filter( itemInCart => (itemInCart.id !== idToRemove))
         setCart(newCart)
     }
+    function clearCart(){
+        setCart([])
+    }
 
     return (
         <>
-        <cartContext.Provider value={ {cart, addToCart, getTotalItemCount, removeItem} }>
+        <cartContext.Provider value={ {cart, addToCart, getTotalItemCount, removeItem,clearCart} }>
             {props.children}
         </cartContext.Provider>
         </>
