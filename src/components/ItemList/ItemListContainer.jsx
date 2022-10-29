@@ -34,7 +34,7 @@ function ItemListContainer(props) {
             <h1>{props.greetting}</h1>
             {isLoadin ?
                 <Loader />
-                : 
+                :
                 <ItemList artList={artList} />
             }
             <hr />

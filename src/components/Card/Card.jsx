@@ -4,23 +4,27 @@ import './Card.css'
 import { Link } from 'react-router-dom';
 
 export default function Card(props) {
-  const colorNew ={
-    color:'green'
+  const colorNew = {
+    color: 'green'
   }
+
+  const colorLast = {
+    color: 'red'
+  }
+
   return (
     <div className="card">
       <div className="card-img">
         <img src={props.img} alt=""></img>
       </div>
-
       <div className="card-detail">
         <h2>{props.title}</h2>
-        {(props.new) && <h3 style={colorNew}>Nuevo!</h3>} 
-         {/*con el operasdor and (&&)  si la primer parte es true se ejecuta la segunda y sino nada  */}
+        {(props.new) && <h3 style={colorNew}>Nuevo!</h3>}
+        {/*con el operasdor and (&&)  si la primer parte es true se ejecuta la segunda y sino nada  */}
         <p>{props.detail}</p>
         <h4>${props.price}</h4>
+        {(props.stock === 1) && <h3 style={colorLast}>Ultimo!!!</h3>}
       </div>
-
       <div>
         {/* al botton le asignamos un link para ir especificamente a ver el detalle de ese art */}
         <Link to={`/articulo/${props.id}`}>
